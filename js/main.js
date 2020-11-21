@@ -9,12 +9,13 @@ let scoreComputer = 0;
 //Si gagnant parties terminées, on peut reocmmance une partie ou non selon la réponse du joueur
 //Sinon on continue une autre manche 
 
+//function managing a round
 function playRound(){
   const player = playerChoice();
   const computer = computerPlay();
 
-  console.log(player);
-  console.log(computer);
+  console.log("Players's choice: " + player);
+  console.log("Computer's choice: " + computer);
 
   if(player === 'paper' && computer === 'rock'){
     //scorePlayer++;
@@ -41,12 +42,13 @@ function playRound(){
 
 }
 
+//function giving the choice of the player
 function playerChoice(){
    const the_player_choice = prompt("Choose: Paper, Rock or Scissors")
    return the_player_choice.toLowerCase();
 }
 
-
+//function giving the choice of the computer
 function computerPlay(){
   const resultRandom = getRandomInt(3);
   let computerChoice
@@ -65,10 +67,12 @@ function computerPlay(){
   return computerChoice;
 }
 
+//function giving a random number between 0 and max exclusive
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+//function incrementing the score of the player or the computer 
 function manageScore(resultOfTheRound){
   if(resultOfTheRound === 'player'){
     scorePlayer++;
@@ -77,20 +81,16 @@ function manageScore(resultOfTheRound){
   }  
 }
 
-let startGame = 'play';
-//while(startGame === 'play'){
-  let gameOver = false;
-//  while(!gameOver){
+//*************This is the main of the game**************************
+  console.log("Good luck to the player, the computer is ready!!!");
   while(scorePlayer < 5 && scoreComputer < 5){
     const resultRound = playRound();
     manageScore(resultRound);
     console.log("Player: " + scorePlayer + " " + "Computer: " + scoreComputer);
   }
 
-  console.log("The game is over and the " + ((scorePlayer === 5) ? " player WIN!!!" : " the computer WIN!"))
-    
+  console.log("The game is over and the " + ((scorePlayer === 5) ? "player WIN!!!" : "computer WIN!"))
+//*************This is theend of the main */    
   
-//  }
-   //console.log(resultRound); 
-//}
+
   
