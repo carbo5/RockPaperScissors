@@ -19,7 +19,7 @@ function playRound(){
   }else if(player === 'paper' && computer === 'scissors'){
     return 'computer';
   }else if(player === 'rock' && computer === 'scissors'){
-    return 'rock';
+    return 'player';
   }else if(player === 'rock' && computer === 'paper'){
     return 'computer';
   }else if(player === 'scissors' && computer === 'rock'){
