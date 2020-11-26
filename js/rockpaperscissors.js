@@ -1,6 +1,7 @@
 //Création de variables pour conserver le score de l'usager et de l'ordinateur
 let scorePlayer = 0;
 let scoreComputer = 0;
+let round = 0;
 //Récupérer le choix de l'utilisateur
 //Générer le choix de l'ordinateur
 //Comparer le choix de l'utilisateur et le choix de l'ordinateur
@@ -12,34 +13,44 @@ let scoreComputer = 0;
 //function managing a round
 function playRound(player, computer){
   //const player = playerChoice();
-  
+  let winner = '';
+  let summary = '';
 
   //console.log("Players's choice: " + player);
   //console.log("Computer's choice: " + computer);
 
   if(player === 'paper' && computer === 'rock'){
     //scorePlayer++;
-    return 'player';
+    summary = "You choose paper and the computer rock, you win this round!"
+    winner = 'player';
   }else if(player === 'paper' && computer === 'scissors'){
     //scoreComputer++;
-    return 'computer';
+    summary = "You choose paper and the computer scissors, the computer win this round!"
+    winner = 'computer';
   }else if(player === 'rock' && computer === 'scissors'){
     //scorePlayer++;
-    return 'player';
+    summary = "You choose rock and the computer scissors, you win this round!"
+    winner = 'player';
   }else if(player === 'rock' && computer === 'paper'){
     //scoreComputer++;
-    return 'computer';
+    summary = "You choose rock and the computer paper, the computer win this round!"
+    winner = 'computer';
   }else if(player === 'scissors' && computer === 'rock'){
     //scoreComputer++;
-    return 'computer';
+    summary = "You choose scissors and the computer rock, the computer win this round!"
+    winner = 'computer';
   }else if(player === 'scissors' && computer === 'paper'){
     //scorePlayer++;
-    return 'player';
+    summary = "You choose scissors and the computer paper, you win this round!"
+    winner = 'player';
   }else{
-    return 'draw';
+    summary  = `You choose ${player} and the computer ${computer}, it's as draw!`
+    winner ='draw';
   }
     
-
+  round++;
+  document.querySelector('#result').innerHTML  +=  `<p>Round ${round}: ${summary}</p>`;
+  return winner;
 }
 
 //function giving the choice of the player
@@ -77,10 +88,12 @@ function manageScore(resultOfTheRound){
   if(resultOfTheRound === 'player'){
     scorePlayer++;
     document.querySelector('.player_score').textContent = `Score: ${scorePlayer}`;
+
   }else if(resultOfTheRound === 'computer'){
     scoreComputer++;
     document.querySelector('.computer_score').textContent = `Score: ${scoreComputer}`;
-  }  
+  }
+  
 }
 
 //*************This is the main of the game**************************
@@ -101,15 +114,15 @@ function player_click(){
   const computer = computerPlay();
   const player = this.getAttribute('data-choice')
 
-  console.log(this.getAttribute('data-choice'));
-  console.log(computer);
+  /*console.log(this.getAttribute('data-choice'));
+  console.log(computer);*/
 
   const computer_set_choice = document.querySelector(`img[data-comp="${computer}"]`);
   computer_set_choice.classList.add('golden_border');
 
 
   const resultRound = playRound(player, computer);
-  console.log(resultRound);
+  /*console.log(resultRound);*/
   manageScore(resultRound);
 
   //console.log(this);
@@ -120,4 +133,27 @@ const images_player = document.querySelectorAll('.player_select');
 images_player.forEach(image_player => {
   image_player.addEventListener('click', player_click);
 });
+
+function removeTransition(e){
+    
+  //key.classList.remove('playing');
+  if(e.propertyName !== 'box-shadow') return; // Skip it if it's not a transform
+  //console.log(this);
+  this.classList.remove('golden_border'); //In this case this represent the div of the key (keydown)
+
+
+  const images_player = document.querySelectorAll('.player_select');
+
+  images_player.forEach(image_player => {
+    image_player.classList.remove('golden_border');
+  });
+
+}
+
+const images_computer = document.querySelectorAll('.computer_select');
+//console.log(images);
+
+  images_computer.forEach(image =>{
+    image.addEventListener('transitionend', removeTransition);
+  });
   
