@@ -93,6 +93,14 @@ function manageScore(resultOfTheRound){
     scoreComputer++;
     document.querySelector('.computer_score').textContent = `Score: ${scoreComputer}`;
   }
+
+  if(scorePlayer === 5){
+    document.querySelector('#description').textContent += ` => You win the game!!!!`;
+    document.querySelector('button').style.value = "display:block;";  //A finaliser
+  }else if(scoreComputer === 5){
+    document.querySelector('#description').textContent += ` => The computer win the game!!!`;
+    document.querySelector('button').style.value = "display:block;"; // A finaliser
+  }
   
 }
 
