@@ -4,14 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>for now the project is in the console</p>
-
-    <script src="./js/main.js">
+    <header>
+        <h1>Rock Paper Scissors</h1>
+        <p class="tod"> <a href="https://www.theodinproject.com/" target="">The Odin Project</a> </p>
+    </header>
     
-       
-    </script>
+    <main>
+       <div id="game">
+            <section id="player">
+                <div class="cont_details">
+                    <h5>Player's choice</h5>
+                    <div class="player_score">0</div>
+                </div>
+                
+                <img class="player_select" src="./img/rock.png" alt="Rock">
+                <img class="player_select" src="./img/papers.png" alt="Paper">
+                <img class="player_select" src="./img/scissors.png" alt="Scissors">
+            </section>
+            <hr/>
+            <section id="computer">
+                <div class="cont_details">
+                    <h5>Computer's choice</h5>
+                    <div class="computer_score">0</div>
+                </div>
+                <img src="./img/rock.png" alt="Rock">
+                <img src="./img/papers.png" alt="Paper">
+                <img src="./img/scissors.png" alt="Scissors">
+            </section>
+
+            <section id="game_control">
+                <div id="result">Results</div>
+                <button>Start a game</button>
+            </section>
+       </div> 
+        
+    </main>
+   
+
+    <footer>
+        <p> <a href="https://www.theodinproject.com/">The Odin Project</a> </p>
+        <p id="name">&copy 2020 Bruno Carbonneau</p>
+    </footer>    
+
+     <!--<script src="./js/main.js">-->
+    <!--<script src="./js/rockpaperscissors.js"></script>-->
 </body>
 </html>
