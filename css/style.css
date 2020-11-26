@@ -26,7 +26,8 @@ h1{
 }
 
 h5{
-    font-size: 12px;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 main{
@@ -36,7 +37,7 @@ main{
 }
 
 .cont_details{
-    width: 150px;
+    width: 325px;
 }
 
 img{
@@ -44,10 +45,21 @@ img{
     width: 100px;
 }
 
+
+
 .player_score, .computer_score{
-    font-size: 36px;
+    font-size: 42px;
     padding: 3%;
     text-align: center;
+}
+
+.computer_select{
+    transition: all 2s ease;
+}
+
+.golden_border{
+    border: 2px solid goldenrod;
+    box-shadow: 0 0 1rem goldenrod;    
 }
 
 .player_select:hover{
@@ -55,10 +67,13 @@ img{
 }
 
 #result{
+    position: relative;
+    float: right;
     flex-grow: 1;
 }
 
 button{
+    /*display: none;*/
     flex-grow: 2;
 }
 
@@ -69,7 +84,7 @@ button{
 }
 
 section{
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-around;
     margin-bottom: 6%;

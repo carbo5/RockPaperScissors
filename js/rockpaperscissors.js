@@ -10,12 +10,12 @@ let scoreComputer = 0;
 //Sinon on continue une autre manche 
 
 //function managing a round
-function playRound(){
-  const player = playerChoice();
-  const computer = computerPlay();
+function playRound(player, computer){
+  //const player = playerChoice();
+  
 
-  console.log("Players's choice: " + player);
-  console.log("Computer's choice: " + computer);
+  //console.log("Players's choice: " + player);
+  //console.log("Computer's choice: " + computer);
 
   if(player === 'paper' && computer === 'rock'){
     //scorePlayer++;
@@ -43,10 +43,10 @@ function playRound(){
 }
 
 //function giving the choice of the player
-function playerChoice(){
+/*function playerChoice(){
    const the_player_choice = prompt("Choose: Paper, Rock or Scissors")
    return the_player_choice.toLowerCase();
-}
+}*/
 
 //function giving the choice of the computer
 function computerPlay(){
@@ -76,21 +76,48 @@ function getRandomInt(max) {
 function manageScore(resultOfTheRound){
   if(resultOfTheRound === 'player'){
     scorePlayer++;
+    document.querySelector('.player_score').textContent = `Score: ${scorePlayer}`;
   }else if(resultOfTheRound === 'computer'){
     scoreComputer++;
+    document.querySelector('.computer_score').textContent = `Score: ${scoreComputer}`;
   }  
 }
 
 //*************This is the main of the game**************************
-  console.log("Good luck to the player, the computer is ready!!!");
+ /* console.log("Good luck to the player, the computer is ready!!!");
   while(scorePlayer < 5 && scoreComputer < 5){
     const resultRound = playRound();
     manageScore(resultRound);
     console.log("Player: " + scorePlayer + " " + "Computer: " + scoreComputer);
   }
 
-  console.log("The game is over and the " + ((scorePlayer === 5) ? "player WIN!!!" : "computer WIN!"))
-//*************This is theend of the main */    
-  
+  console.log("The game is over and the " + ((scorePlayer === 5) ? "player WIN!!!" : "computer WIN!"))*/
+//*************This is theend of the main */
 
+function player_click(){
+  
+  this.classList.add('golden_border');
+  
+  const computer = computerPlay();
+  const player = this.getAttribute('data-choice')
+
+  console.log(this.getAttribute('data-choice'));
+  console.log(computer);
+
+  const computer_set_choice = document.querySelector(`img[data-comp="${computer}"]`);
+  computer_set_choice.classList.add('golden_border');
+
+
+  const resultRound = playRound(player, computer);
+  console.log(resultRound);
+  manageScore(resultRound);
+
+  //console.log(this);
+}
+  
+const images_player = document.querySelectorAll('.player_select');
+
+images_player.forEach(image_player => {
+  image_player.addEventListener('click', player_click);
+});
   

@@ -18,28 +18,30 @@
        <div id="game">
             <section id="player">
                 <div class="cont_details">
-                    <h5>Player's choice</h5>
-                    <div class="player_score">0</div>
+                    <h5>Player's zone</h5>
                 </div>
                 
-                <img class="player_select" src="./img/rock.png" alt="Rock">
-                <img class="player_select" src="./img/papers.png" alt="Paper">
-                <img class="player_select" src="./img/scissors.png" alt="Scissors">
+                <img class="player_select" data-choice="rock" src="./img/rock.png" alt="Rock">
+                <img class="player_select" data-choice="paper" src="./img/papers.png" alt="Paper">
+                <img class="player_select" data-choice="scissors" src="./img/scissors.png" alt="Scissors">
+                <div class="player_score">Score: 0</div>
             </section>
-            <hr/>
+            
             <section id="computer">
                 <div class="cont_details">
-                    <h5>Computer's choice</h5>
-                    <div class="computer_score">0</div>
+                    <h5>Computer's zone</h5>
                 </div>
-                <img src="./img/rock.png" alt="Rock">
-                <img src="./img/papers.png" alt="Paper">
-                <img src="./img/scissors.png" alt="Scissors">
+                <img class="computer_select" data-comp="rock" src="./img/rock.png" alt="Rock">
+                <img class="computer_select" data-comp="paper" src="./img/papers.png" alt="Paper">
+                <img class="computer_select" data-comp="scissors" src="./img/scissors.png" alt="Scissors">
+                <div class="computer_score">Score: 0</div>
             </section>
 
+            <div id="result">Summary</div>
+
             <section id="game_control">
-                <div id="result">Results</div>
-                <button>Start a game</button>
+                
+                <button>Play again</button>
             </section>
        </div> 
         
@@ -52,6 +54,6 @@
     </footer>    
 
      <!--<script src="./js/main.js">-->
-    <!--<script src="./js/rockpaperscissors.js"></script>-->
+    <script src="./js/rockpaperscissors.js"></script>
 </body>
 </html>

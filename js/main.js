@@ -93,4 +93,13 @@ function manageScore(resultOfTheRound){
 //*************This is theend of the main */    
   
 
-  
+/*Sélction des images*/
+const images_player = document.querySelectorAll('.player_select');
+imgages_player.forEach(image_player => {
+ image_player = document.addEventListener('click', () => {
+   this.classList.add('golden_border');
+ });
+});
+
+
+
