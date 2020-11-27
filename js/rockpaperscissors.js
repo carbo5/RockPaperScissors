@@ -99,7 +99,7 @@ function manageScore(resultOfTheRound){
     document.querySelector('button').style.display = "block";  //A finaliser
     remove_images_action()
   }else if(scoreComputer === 5){
-    document.querySelector('#description').textContent += ` => The computer win the game!!!`;
+    document.querySelector('#description').textContent = `The computer win the game!!!`;
     document.querySelector('button').style.display = "block"; // A finaliser
     remove_images_action()
   }
@@ -171,6 +171,7 @@ function removeTransition(e){
 
 }
 
+//Restart a new game
 function reset(){
   scorePlayer = 0;
   scoreComputer = 0;
@@ -181,7 +182,20 @@ function reset(){
   document.querySelector(".computer_score").textContent = "Score: 0";
   document.querySelector("#result").innerHTML = "";
   document.querySelector("#result").textContent = "Summary";
-  removeTransition(e);
+  //removeTransition(e);
+
+  const images = document.querySelectorAll('img'); 
+
+  images.forEach(image => {
+    console.log(image);
+    if (!image.classList.contains('computer_select')){
+      image.classList.remove('golden_border');
+      image.classList.add('player_select');
+      image.addEventListener('click', player_click);
+      image.addEventListener('transitionend', removeTransition);
+    }
+  
+  });
 
 }
 
