@@ -96,12 +96,25 @@ function manageScore(resultOfTheRound){
 
   if(scorePlayer === 5){
     document.querySelector('#description').textContent += ` => You win the game!!!!`;
-    document.querySelector('button').style.value = "display:block;";  //A finaliser
+    document.querySelector('button').style.display = "block";  //A finaliser
+    remove_images_action()
   }else if(scoreComputer === 5){
     document.querySelector('#description').textContent += ` => The computer win the game!!!`;
-    document.querySelector('button').style.value = "display:block;"; // A finaliser
+    document.querySelector('button').style.display = "block"; // A finaliser
+    remove_images_action()
   }
   
+}
+
+function remove_images_action(){
+  let images = document.querySelectorAll('img');
+
+  images.forEach((image) => {
+    image.removeEventListener('click', player_click);
+    //image.removeEventListener('transitionend',)
+    image.classList.remove('player_select');
+    image.classList.remove('golden-border');
+  });
 }
 
 //*************This is the main of the game**************************
@@ -157,6 +170,22 @@ function removeTransition(e){
   });
 
 }
+
+function reset(){
+  scorePlayer = 0;
+  scoreComputer = 0;
+  round = 0;
+
+  document.querySelector("#description").textContent = "Win 5 rounds and win the game!";
+  document.querySelector(".player_score").textContent = "Score: 0";
+  document.querySelector(".computer_score").textContent = "Score: 0";
+  document.querySelector("#result").innerHTML = "";
+  document.querySelector("#result").textContent = "Summary";
+  removeTransition(e);
+
+}
+
+document.querySelector('button').addEventListener('click', reset);
 
 const images_computer = document.querySelectorAll('.computer_select');
 //console.log(images);
