@@ -75,7 +75,7 @@ img{
 
 .player_select:hover{
     border: 3px solid goldenrod;
-    /transform: scale(1.1);*/
+    /*transform: scale(1.1);*/
 }
 
 #result{
