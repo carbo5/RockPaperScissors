@@ -61,10 +61,10 @@ img{
 }
 
 .computer_select{
-    transition: all 3s ease;
+    transition: all 2s ease;
 }
 .player_select{
-    transition: all 2s ease;
+    transition: all 1s ease;
 }
 
 .golden_border{
@@ -87,6 +87,10 @@ img{
 button{
     display: none;
     width: 20%;
+    color: white;
+    background-color: black;
+    border-color: goldenrod;
+    padding: 1%;
     /*margin: auto;*/
     /*flex-grow: 2;*/
 }

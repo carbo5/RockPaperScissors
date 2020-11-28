@@ -193,6 +193,7 @@ function reset(){
       image.classList.add('player_select');
       image.addEventListener('click', player_click);
       image.addEventListener('transitionend', removeTransition);
+      document.querySelector('button').style.display = "none"
     }
   
   });
